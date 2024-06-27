@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.back{
+    display: flex;
+    width: 550px;
+    height: 600px;
+    background-image: url(../IMG/b1d9b4a6fa6e6601659c845e771feaaf.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.esqueletoOff{
+    display: flex;
+    width: 550px;
+    height: 600px;
+    align-items: end;
+    justify-content: center;
+    box-shadow: 0 0 20px rgb(217, 214, 58),0 0 20px rgb(231, 126, 28);
+    background-image: url(../IMG/esqueleto2.png);   
+    
+}
+
+body{
+    background-color: rgb(51, 50, 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.esqueletoOnOff{
+    display: flex;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(29, 28, 28);
+    border-radius: 1vh;
+    font-family: monospace;
+    position: fixed;
+    align-items: center;
+    color:rgb(217, 214, 58);
+    justify-content: center;
+    cursor: pointer;
+}
+
+.esqueletoOnOff::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.esqueletoOnOff::before {
+    content: "";
+    background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+
+.esqueletoOnOff:hover::before {
+    opacity: 1;
+}
+
+.esqueletoOnOff:active:after {
+    background: transparent;
+}
+
+.esqueletoOnOff:active {
+    color: #000;
+    font-weight: bold;
+}
+
+.esqueletoOff.on{
+    background-image: url(../IMG/esqueleto1.gif);
+}
+
+
